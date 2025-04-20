@@ -1,0 +1,1469 @@
+<?xml version="1.0"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="human_gripper" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <link name="dummy_link"></link>
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.00634030455138496 0.0127750182488855 -0.00253612182055409"
+        rpy="0 0 0" />
+      <mass
+        value="779.575829353543" />
+      <inertia
+        ixx="104.663902606885"
+        ixy="2.15382035157885E-19"
+        ixz="-3.1701589064862E-20"
+        iyy="209.243253187742"
+        iyz="4.02390555833248E-21"
+        izz="104.663885218665" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.807843137254902 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="dummy_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0" />
+    <parent link="dummy_link"/>
+    <child link="base_link"/>
+  </joint>
+
+  <link
+    name="forearm_link">
+    <inertial>
+      <origin
+        xyz="-4.77540505455796E-07 -0.113350147515814 1.68465653167629E-07"
+        rpy="0 0 0" />
+      <mass
+        value="12.0783072555266" />
+      <inertia
+        ixx="0.0563231524384721"
+        ixy="9.60478297477321E-08"
+        ixz="-1.35452302599274E-05"
+        iyy="0.00565540642784919"
+        iyz="-2.22869048134897E-08"
+        izz="0.0577408713954579" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/forearm_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.807843137254902 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/forearm_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="forearm_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0.0762"
+      rpy="-1.5708 0 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="forearm_link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="wrist_link">
+    <inertial>
+      <origin
+        xyz="-3.54827341787243E-09 0.015834457280835 9.20907958153161E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.655755126741823" />
+      <inertia
+        ixx="0.000171746019698482"
+        ixy="4.60377062089149E-12"
+        ixz="9.03072156882194E-11"
+        iyy="0.000132861214111197"
+        iyz="-7.82107207987216E-11"
+        izz="0.000161699361151699" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/wrist_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.807843137254902 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/wrist_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wrist_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.26035 0"
+      rpy="3.1416 0 0" />
+    <parent
+      link="forearm_link" />
+    <child
+      link="wrist_link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="palm_link">
+    <inertial>
+      <origin
+        xyz="-0.00133454641740369 0.0604857930043962 -0.000847620366275223"
+        rpy="0 0 0" />
+      <mass
+        value="2.21181125890624" />
+      <inertia
+        ixx="0.00149018247410878"
+        ixy="1.91127863922923E-05"
+        ixz="1.41042568019278E-05"
+        iyy="0.000910318631613756"
+        iyz="1.85684897250999E-05"
+        izz="0.0022313457033219" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/palm_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.807843137254902 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/palm_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="palm_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.01778 0"
+      rpy="3.1416 0 3.1416" />
+    <parent
+      link="wrist_link" />
+    <child
+      link="palm_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="1.5708"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="thumb_link1">
+    <inertial>
+      <origin
+        xyz="0.00901683401057651 0.00903716742958728 6.93889390390723E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.0492845244427773" />
+      <inertia
+        ixx="3.81144161579786E-06"
+        ixy="1.63250192709397E-07"
+        ixz="-2.50222135297291E-23"
+        iyy="1.1797655035283E-06"
+        iyz="-1.27054942088145E-21"
+        izz="3.7872566212501E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/thumb_link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.807843137254902 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/thumb_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="thumb_joint1"
+    type="revolute">
+    <origin
+      xyz="-0.043397 0.054047 0.01932"
+      rpy="0.87388 0.045212 1.5421" />
+    <parent
+      link="palm_link" />
+    <child
+      link="thumb_link1" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="1.5708"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="thumb_link2">
+    <inertial>
+      <origin
+        xyz="0.00776491096542914 0.0196806505323827 -0.000219933657724693"
+        rpy="0 0 0" />
+      <mass
+        value="0.0584744149508582" />
+      <inertia
+        ixx="4.13565778419691E-06"
+        ixy="-1.47109498906188E-07"
+        ixz="3.97502678654692E-09"
+        iyy="1.20799914295799E-06"
+        iyz="1.66062681779658E-07"
+        izz="3.95233199235737E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/thumb_link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.807843137254902 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/thumb_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="thumb_joint2"
+    type="revolute">
+    <origin
+      xyz="0 0.01 0"
+      rpy="0 0 0" />
+    <parent
+      link="thumb_link1" />
+    <child
+      link="thumb_link2" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="1.5708"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="index_link1">
+    <inertial>
+      <origin
+        xyz="0.00933728052580867 -0.00903716742958732 -2.96028299798E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.0492845244427773" />
+      <inertia
+        ixx="3.81144161579786E-06"
+        ixy="-1.63250192709408E-07"
+        ixz="1.11280468297742E-22"
+        iyy="1.1797655035283E-06"
+        iyz="7.91973255189714E-22"
+        izz="3.78725662125011E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/index_link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.807843137254902 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/index_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="index_joint1"
+    type="revolute">
+    <origin
+      xyz="-0.022786 0.10973 0"
+      rpy="0 0 -3.1416" />
+    <parent
+      link="palm_link" />
+    <child
+      link="index_link1" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.5708"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="index_link2">
+    <inertial>
+      <origin
+        xyz="-0.00488671947419137 0.00903716742958732 6.95315974962666E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.0492845244427774" />
+      <inertia
+        ixx="3.81144161579786E-06"
+        ixy="1.63250192709402E-07"
+        ixz="7.50127380606275E-23"
+        iyy="1.1797655035283E-06"
+        iyz="-1.26694764744726E-21"
+        izz="3.7872566212501E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/index_link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.807843137254902 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/index_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="index_joint2"
+    type="revolute">
+    <origin
+      xyz="0.00254 -0.01905 0"
+      rpy="0 0 -3.1416" />
+    <parent
+      link="index_link1" />
+    <child
+      link="index_link2" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="1.5708"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="index_link3">
+    <inertial>
+      <origin
+        xyz="-0.00613864169175579 0.0106306443706335 -0.000219930065790364"
+        rpy="0 0 0" />
+      <mass
+        value="0.0584743357750474" />
+      <inertia
+        ixx="4.13565127579707E-06"
+        ixy="-1.471099722789E-07"
+        ixz="3.97564171396168E-09"
+        iyy="1.20799696989037E-06"
+        iyz="1.66066676079325E-07"
+        izz="3.95232466111938E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/index_link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.807843137254902 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/index_link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="index_joint3"
+    type="revolute">
+    <origin
+      xyz="0 0.01905 0"
+      rpy="0 0 0" />
+    <parent
+      link="index_link2" />
+    <child
+      link="index_link3" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="1.5708"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="middle_link1">
+    <inertial>
+      <origin
+        xyz="0.00933728052580868 -0.00903716742958727 -3.10176149081067E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.0492845244427773" />
+      <inertia
+        ixx="3.81144161579786E-06"
+        ixy="-1.63250192709408E-07"
+        ixz="-1.42546473729865E-23"
+        iyy="1.1797655035283E-06"
+        iyz="1.13217574228451E-21"
+        izz="3.78725662125011E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/middle_link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.807843137254902 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/middle_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="middle_joint1"
+    type="revolute">
+    <origin
+      xyz="-0.00127 0.10795 0"
+      rpy="0 0 -3.1416" />
+    <parent
+      link="palm_link" />
+    <child
+      link="middle_link1" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.5708"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="middle_link2">
+    <inertial>
+      <origin
+        xyz="-0.00488671947419138 0.00903716742958727 6.94798976215197E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.0492845244427774" />
+      <inertia
+        ixx="3.81144161579786E-06"
+        ixy="1.63250192709402E-07"
+        ixz="1.6104209442282E-22"
+        iyy="1.1797655035283E-06"
+        iyz="-1.26257794471827E-21"
+        izz="3.7872566212501E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/middle_link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.807843137254902 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/middle_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="middle_joint2"
+    type="revolute">
+    <origin
+      xyz="0.00254 -0.01905 0"
+      rpy="0 0 -3.1416" />
+    <parent
+      link="middle_link1" />
+    <child
+      link="middle_link2" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="1.5708"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="middle_link3">
+    <inertial>
+      <origin
+        xyz="-0.00613864169175581 0.0106306443706333 -0.000219930065790222"
+        rpy="0 0 0" />
+      <mass
+        value="0.0584743357750467" />
+      <inertia
+        ixx="4.13565127579687E-06"
+        ixy="-1.47109972278937E-07"
+        ixz="3.97564171397066E-09"
+        iyy="1.20799696989012E-06"
+        iyz="1.66066676083118E-07"
+        izz="3.95232466111941E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/middle_link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.807843137254902 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/middle_link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="middle_joint3"
+    type="revolute">
+    <origin
+      xyz="0 0.01905 0"
+      rpy="0 0 0" />
+    <parent
+      link="middle_link2" />
+    <child
+      link="middle_link3" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="1.5708"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="ring_link1">
+    <inertial>
+      <origin
+        xyz="-0.0109133113109169 -0.00735909405147117 -1.0894773136718E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.0492845244427773" />
+      <inertia
+        ixx="3.81144161579786E-06"
+        ixy="-1.63250192709407E-07"
+        ixz="1.29893062032991E-22"
+        iyy="1.1797655035283E-06"
+        iyz="6.73655444667634E-22"
+        izz="3.78725662125011E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/ring_link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.807843137254902 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/ring_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ring_joint1"
+    type="revolute">
+    <origin
+      xyz="-0.00127 0.10795 0"
+      rpy="0 0 -3.1416" />
+    <parent
+      link="palm_link" />
+    <child
+      link="ring_link1" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="ring_link2">
+    <inertial>
+      <origin
+        xyz="0.00536387236253422 0.00735909405147117 -3.88212001395077E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.0492845244427774" />
+      <inertia
+        ixx="3.81144161579786E-06"
+        ixy="1.63250192709404E-07"
+        ixz="3.03238510971491E-23"
+        iyy="1.1797655035283E-06"
+        iyz="-1.77283144365726E-21"
+        izz="3.78725662125011E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/ring_link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.807843137254902 0.498039215686275 1" />
+      </material>
+      </visual>
+      <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/ring_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ring_joint2"
+    type="revolute">
+    <origin
+      xyz="-0.00746 -0.01905 0"
+      rpy="0 0 -3.1416" />
+    <parent
+      link="ring_link1" />
+    <child
+      link="ring_link2" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="1.5708"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="ring_link3">
+    <inertial>
+      <origin
+        xyz="0.00411195014497646 0.00895257099241997 -0.000219930065885925"
+        rpy="0 0 0" />
+      <mass
+        value="0.058474335773948" />
+      <inertia
+        ixx="4.13565127591682E-06"
+        ixy="-1.47109972293844E-07"
+        ixz="3.97564171175199E-09"
+        iyy="1.20799696985661E-06"
+        iyz="1.66066676109149E-07"
+        izz="3.95232466127434E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/ring_link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.807843137254902 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/ring_link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ring_joint3"
+    type="revolute">
+    <origin
+      xyz="0 0.01905 0"
+      rpy="0 0 0" />
+    <parent
+      link="ring_link2" />
+    <child
+      link="ring_link3" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="1.5708"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="pinky_link1">
+    <inertial>
+      <origin
+        xyz="-0.00268015697416352 -0.00389806770910683 -4.5800575080755E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.0492845244427773" />
+      <inertia
+        ixx="3.81144161579786E-06"
+        ixy="-1.63250192709408E-07"
+        ixz="1.79503288915012E-22"
+        iyy="1.1797655035283E-06"
+        iyz="8.27535895267898E-22"
+        izz="3.78725662125011E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/pinky_link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.807843137254902 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/pinky_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="pinky_joint1"
+    type="revolute">
+    <origin
+      xyz="0.027214 0.10973 0"
+      rpy="0 0 -3.1416" />
+    <parent
+      link="palm_link" />
+    <child
+      link="pinky_link1" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"  
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="pinky_link2">
+    <inertial>
+      <origin
+        xyz="0.00713071802578081 0.00389806770910683 -4.10671786118873E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.0492845244427774" />
+      <inertia
+        ixx="3.81144161579786E-06"
+        ixy="1.63250192709402E-07"
+        ixz="1.14038430187053E-22"
+        iyy="1.1797655035283E-06"
+        iyz="-1.03849848918976E-21"
+        izz="3.78725662125011E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/pinky_link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.807843137254902 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/pinky_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="pinky_joint2"
+    type="revolute">
+    <origin
+      xyz="0.00254 -0.01905 0"
+      rpy="0 0 -3.1416" />
+    <parent
+      link="pinky_link1" />
+    <child
+      link="pinky_link2" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="1.5708"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="pinky_link3">
+    <inertial>
+      <origin
+        xyz="0.00587879580821641 0.00549154465015289 -0.000219930065790405"
+        rpy="0 0 0" />
+      <mass
+        value="0.0584743357750467" />
+      <inertia
+        ixx="4.13565127579631E-06"
+        ixy="-1.47109972278925E-07"
+        ixz="3.97564171396666E-09"
+        iyy="1.20799696988968E-06"
+        iyz="1.66066676083012E-07"
+        izz="3.95232466111929E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/pinky_link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.807843137254902 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://human_gripper/meshes/pinky_link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="pinky_joint3"
+    type="revolute">
+    <origin
+      xyz="0 0.01905 0"
+      rpy="0 0 0" />
+    <parent
+      link="pinky_link2" />
+    <child
+      link="pinky_link3" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="1.5708"
+      effort="0"
+      velocity="0" />
+  </joint>
+
+  <xacro:macro name="main_color">
+    <visual>
+    <material>
+        <ambient>0.7383 0.5898 0.4687 1</ambient>
+        <diffuse>0.7383 0.5898 0.4687 1</diffuse>
+        <specular>0.1 0.1 0.1 1</specular>
+        <emissive>0 0 0 0</emissive>
+    </material>
+    </visual>
+  </xacro:macro>
+
+  <xacro:macro name="contrast_color">
+    <visual>
+    <material>
+        <ambient>1 0.1 0.1 1</ambient>
+        <diffuse>1 0.1 0.1 1</diffuse>
+        <specular>0.1 0.1 0.1 1</specular>
+        <emissive>0 0 0 0</emissive>
+    </material>
+    </visual>
+  </xacro:macro>
+  
+  <gazebo reference="base_link">
+    <xacro:main_color />
+  </gazebo>
+  <gazebo reference="forearm_link">
+    <xacro:main_color />
+  </gazebo>
+  <gazebo reference="wrist_link">
+    <xacro:contrast_color />
+  </gazebo>
+  <gazebo reference="palm_link">
+    <xacro:main_color />
+  </gazebo>
+  <gazebo reference="thumb_link1">
+    <xacro:main_color />
+  </gazebo>
+  <gazebo reference="thumb_link2">
+    <xacro:contrast_color />
+  </gazebo>
+  <gazebo reference="index_link1">
+    <xacro:contrast_color />
+  </gazebo>
+  <gazebo reference="index_link2">
+    <xacro:main_color />
+  </gazebo>
+  <gazebo reference="index_link3">
+    <xacro:contrast_color />
+  </gazebo>
+  <gazebo reference="middle_link1">
+    <xacro:contrast_color />
+  </gazebo>
+  <gazebo reference="middle_link2">
+    <xacro:main_color />
+  </gazebo>
+  <gazebo reference="middle_link3">
+    <xacro:contrast_color />
+  </gazebo>
+  <gazebo reference="ring_link1">
+    <xacro:contrast_color />
+  </gazebo>
+  <gazebo reference="ring_link2">
+    <xacro:main_color />
+  </gazebo>
+  <gazebo reference="ring_link3">
+    <xacro:contrast_color />
+  </gazebo>
+  <gazebo reference="pinky_link1">
+    <xacro:contrast_color />
+  </gazebo>
+  <gazebo reference="pinky_link2">
+    <xacro:main_color />
+  </gazebo>
+  <gazebo reference="pinky_link3">
+    <xacro:contrast_color />
+  </gazebo>  
+
+  <gazebo>
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+        <parameters>$(find human_gripper)/config/control.yaml</parameters>
+    </plugin>
+  </gazebo>
+
+  <ros2_control name="GazeboSystem" type="system">
+    <hardware>
+        <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    </hardware>
+
+    # Velocity Controllers
+    <joint name="forearm_joint">
+        <command_interface name="velocity">
+            <param name="min">-1000</param>
+            <param name="max">1000</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+    <joint name="wrist_joint">
+        <command_interface name="velocity">
+            <param name="min">-1000</param>
+            <param name="max">1000</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+    <joint name="palm_joint">
+        <command_interface name="velocity">
+            <param name="min">-1000</param>
+            <param name="max">1000</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="thumb_joint1">
+        <command_interface name="velocity">
+            <param name="min">-1000</param>
+            <param name="max">1000</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+    <joint name="thumb_joint2">
+        <command_interface name="velocity">
+            <param name="min">-1000</param>
+            <param name="max">1000</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="index_joint1">
+        <command_interface name="velocity">
+            <param name="min">-1000</param>
+            <param name="max">1000</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+    <joint name="index_joint2">
+        <command_interface name="velocity">
+            <param name="min">-1000</param>
+            <param name="max">1000</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+    <joint name="index_joint3">
+        <command_interface name="velocity">
+            <param name="min">-1000</param>
+            <param name="max">1000</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="middle_joint1">
+        <command_interface name="velocity">
+            <param name="min">-1000</param>
+            <param name="max">1000</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+    <joint name="middle_joint2">
+        <command_interface name="velocity">
+            <param name="min">-1000</param>
+            <param name="max">1000</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+    <joint name="middle_joint3">
+        <command_interface name="velocity">
+            <param name="min">-1000</param>
+            <param name="max">1000</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="ring_joint1">
+        <command_interface name="velocity">
+            <param name="min">-1000</param>
+            <param name="max">1000</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+    <joint name="ring_joint2">
+        <command_interface name="velocity">
+            <param name="min">-1000</param>
+            <param name="max">1000</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+    <joint name="ring_joint3">
+        <command_interface name="velocity">
+            <param name="min">-1000</param>
+            <param name="max">1000</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="pinky_joint1">
+        <command_interface name="velocity">
+            <param name="min">-1000</param>
+            <param name="max">1000</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+    <joint name="pinky_joint2">
+        <command_interface name="velocity">
+            <param name="min">-1000</param>
+            <param name="max">1000</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+    <joint name="pinky_joint3">
+        <command_interface name="velocity">
+            <param name="min">-1000</param>
+            <param name="max">1000</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+
+    # PositionControllers
+    <joint name="forearm_joint"> <!-- Joint 1, aka the elbow -->
+        <command_interface name="position">
+            <param name="min">0</param>
+            <param name="max">1.5708</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>1.1618
+    </joint>
+    <joint name="wrist_joint"> <!-- Joint 2, aka the wrist "side-to-side" -->
+        <command_interface name="position">
+            <param name="min">0</param>
+            <param name="max">1.5708</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+    <joint name="palm_joint">  <!-- Joint 3, aka the wrist revolute joint, the "up and down" is skipped -->
+        <command_interface name="position">
+            <param name="min">0</param>
+            <param name="max">1.5708</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="index_joint1"> <!-- Joint 4, index finger start, the "up and down" is skipped -->
+        <command_interface name="position">
+            <param name="min">-1.5708</param>
+            <param name="max">0</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+    <joint name="index_joint2"> <!-- Joint 5, index finger middle -->
+        <command_interface name="position">
+            <param name="min">0</param>
+            <param name="max">1.5708</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+    <joint name="index_joint3"> <!-- Joint 6, index finger tip -->
+        <command_interface name="position">
+            <param name="min">0</param>
+            <param name="max">1.5708</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="thumb_joint1"> <!-- Joint 7, thumb base -->
+        <command_interface name="position">
+            <param name="min">-1.5708</param>
+            <param name="max">0</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+    <joint name="thumb_joint2"> <!-- Joint 8, thumb tip -->
+        <command_interface name="position">
+            <param name="min">0</param>
+            <param name="max">1.5708</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="middle_joint1"> <!-- Joint 9, or 4 -->
+        <command_interface name="position">
+            <param name="min">0</param>
+            <param name="max">1.5708</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+    <joint name="middle_joint2"> <!-- Joint 10, or 5 -->
+        <command_interface name="position">
+            <param name="min">0</param>
+            <param name="max">1.5708</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+    <joint name="middle_joint3"> <!-- Joint 11 -->
+        <command_interface name="position">
+            <param name="min">0</param>
+            <param name="max">1.5708</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="ring_joint1"> <!-- Joint 12, or 4 -->
+        <command_interface name="position">
+            <param name="min">0</param>
+            <param name="max">1.5708</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+    <joint name="ring_joint2"> <!-- Joint 13, or 5 -->
+        <command_interface name="position">
+            <param name="min">0</param>
+            <param name="max">1.5708</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+    <joint name="ring_joint3"> <!-- Joint 14 -->
+        <command_interface name="position">
+            <param name="min">0</param>
+            <param name="max">1.5708</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="pinky_joint1"> <!-- Joint 15, or 4 -->
+        <command_interface name="position">
+            <param name="min">0</param>
+            <param name="max">1.5708</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+    <joint name="pinky_joint2"> <!-- Joint 16, or 5 -->
+        <command_interface name="position">
+            <param name="min">0</param>
+            <param name="max">1.5708</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+    <joint name="pinky_joint3"> <!-- Joint 17 -->
+        <command_interface name="position">
+            <param name="min">0</param>
+            <param name="max">1.5708</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+  </ros2_control>
+
+  <gazebo>
+    <plugin name='vacuum_gripper' filename='libgazebo_ros_vacuum_gripper.so'>
+
+      <!-- This part can be commented out if not required -->
+      <ros>
+
+        <!-- Add a namespace --> 
+        <namespace>/demo</namespace>
+
+        <!-- Remapping service and topic names -->
+        <remapping>switch:=custom_switch</remapping>
+        <remapping>grasping:=custom_grasping</remapping>
+      </ros>
+
+      <!-- Link associated with gripper -->
+      <link_name>thumb_link2</link_name>
+      <!-- <link_name>index_link3</link_name>
+      <link_name>middle_link3</link_name>
+      <link_name>ring_link3</link_name>
+      <link_name>pinky_link3</link_name> -->
+
+      <!-- Max distance to attract entities -->
+      <max_distance>1.0</max_distance>
+
+      <!-- List of entities to be not attracted by the gripper -->
+      <fixed>ground_plane</fixed>
+      <fixed>wall</fixed>
+      <fixed>forearm_link</fixed>
+      <fixed>palm_link</fixed>
+      <fixed>wrist_link</fixed>
+      <fixed>thumb_link1</fixed>
+      
+      <fixed>index_link1</fixed>
+      <fixed>index_link2</fixed>
+      <fixed>index_link3</fixed>
+      <fixed>middle_link1</fixed>
+      <fixed>middle_link2</fixed>
+      <fixed>middle_link3</fixed>
+      <fixed>ring_link1</fixed>
+      <fixed>ring_link2</fixed>
+      <fixed>ring_link3</fixed>
+      <fixed>pinky_link1</fixed>
+      <fixed>pinky_link2</fixed>
+      <fixed>pinky_link3</fixed>
+    </plugin>
+  </gazebo>
+
+
+</robot>
