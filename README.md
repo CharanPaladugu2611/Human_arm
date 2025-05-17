@@ -2,12 +2,16 @@
 
 This repository presents a comprehensive robotic modeling project developed as part of ENPM662 - Introduction to Robot Modeling. The goal was to simulate the upper portion of a human arm (elbow to fingers) using a 17 DOF kinematic structure in Gazebo and validate it using symbolic kinematic modeling tools, forward/inverse kinematics, and teleoperation control.
 
+---
+
 ## 🧠 Project Overview
 * Goal: To replicate human arm functionality in a virtual robot using realistic DH parameters and simulate motion in Gazebo.
 
 * Scope: The system includes 6 DOF from elbow to fingertip and further breakdown across parallel finger structures, each with revolute joints.
 
 * Applications: This can be extended to prosthetics, telemanipulation, or pick-and-place robots.
+
+---
 
 ## 🔧 Robot Design and Structure
 ### 📌 Key Specifications
@@ -58,6 +62,8 @@ This repository presents a comprehensive robotic modeling project developed as p
 
 - Limited by physical workspace of anatomical fidelity.
 
+---
+
 ## 🎮 Control and Teleoperation
 * Teleop node built using ROS Python package.
 
@@ -68,6 +74,8 @@ This repository presents a comprehensive robotic modeling project developed as p
   * Passive grip release on no input (mimics relaxed hand).
 
   * Grouped joint control for simplified teleoperation.
+
+---
 
 ## 🛠️ Simulation Setup
 * Gazebo: Model simulated in physics-enabled world.
@@ -81,6 +89,8 @@ This repository presents a comprehensive robotic modeling project developed as p
 ### 🧩 Visualization Demo
 Watch the arm perform rock-paper-scissors with randomized choices.\
 🎥 [Simulation Video](https://drive.google.com/file/d/1i169GcTWNQIHsVtYh0mpbomPb4Xoh0bB/view)
+
+---
 
 ## ⚙️ System Architecture Diagram
 
@@ -96,6 +106,8 @@ Human Arm URDF (17 DOF)
 Visual + Motion Feedback in Gazebo/RViz
 ```
 
+---
+
 ## 📈 Challenges Faced
 |Challenge|	Resolution|
 |:---:|:---:|
@@ -103,6 +115,9 @@ Visual + Motion Feedback in Gazebo/RViz
 |Limited workspace	|Prioritized anatomical realism over full flexibility|
 |Xacro validation errors|	Manual file validation + debugging|
 |Wrist visualization confusion	|Redefined axis visualization in CAD|
+
+---
+
 ## 🚀 Future Work
 * Add feedback sensors and haptic interface → for prosthetic applications
 
